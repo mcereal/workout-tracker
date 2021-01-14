@@ -1,14 +1,9 @@
 const router = require("express").Router();
-const Transaction = require("../models/workout.js");
+const Workout = require("../models/workout.js");
 
-router.post("/api/transaction", ({ body }, res) => {
-  Transaction.create(body)
-    .then((dbTransaction) => {
-      res.json(dbTransaction);
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-    });
-});
+router.post("/api/workouts", ({ body }, res) => {});
+router.get("/api/workouts", ({ body }, res) => {});
+router.put("/api/workouts", ({ body }, res) => {});
+router.get("/api/workouts/range", ({ body }, res) => {});
 
 module.exports = router;
