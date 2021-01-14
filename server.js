@@ -11,7 +11,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/workout-tracker",
+  process.env.MONGODB_URI ||
+    "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false",
   {
     useNewUrlParser: true,
     useFindAndModify: false,
