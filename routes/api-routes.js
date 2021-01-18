@@ -17,7 +17,7 @@ router.get("/api/workouts", async (req, res) => {
     res.json(error);
   }
 });
-router.put("/api/workouts", async ({ body, params }, res) => {
+router.put("/api/workouts/:id", async ({ body, params }, res) => {
   try {
     const findById = await Workout.findByIdAndUpdate(
       params.id,
@@ -29,6 +29,22 @@ router.put("/api/workouts", async ({ body, params }, res) => {
     res.json(error);
   }
 });
-router.get("/api/workouts/range", ({ body }, res) => {});
+router.get("/api/workouts/range", async ({ body }, res) => {
+  try {
+    const getWorkout = await Workout.find();
+    res.json(getWorkout);
+  } catch (error) {
+    res.json(error);
+  }
+});
+
+router.post("/api/workout/range", async (req, res) => {
+  try {
+    const createWorkout = await Workout.create({});
+    res.json(createWorkout);
+  } catch (error) {
+    res.json(error);
+  }
+});
 
 module.exports = router;
